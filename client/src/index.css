@@ -1,0 +1,124 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  font-family: 'Rajdhani', sans-serif;
+}
+
+p{
+  font-family: 'Rajdhani', sans-serif;
+}
+
+@layer components {
+  .icon-primary { color: #89EA5F; }
+  .bg-primary-hover { background-color: #89EA5F; }
+  .bg-primary-hover:hover { background-color: #78D54E; }
+}
+
+
+:root {
+  /* Mirror of the primary colors defined in tailwind.config.js
+    Keep these in sync with tailwind.config.js if you change them. */
+  --color-primary: #89EA5F;
+  --color-primary-dark: #78D54E;
+}
+
+@layer utilities {
+  /* Use CSS variables instead of Tailwind's theme() inside CSS to avoid
+    runtime resolution errors from the plugin. */
+  .text-primary { color: var(--color-primary); }
+  .text-primary-dark { color: var(--color-primary-dark); }
+
+  .bg-primary { background-color: var(--color-primary); }
+  .bg-primary-dark { background-color: var(--color-primary-dark); }
+
+  .border-primary { border-color: var(--color-primary); }
+  .ring-primary { --tw-ring-color: var(--color-primary); }
+
+  /* Escaped hover helpers so classes like `hover:text-primary` and
+    `hover:bg-primary` (with the colon) will work when added to markup. */
+  .hover\:text-primary:hover { color: var(--color-primary); }
+  .hover\:bg-primary:hover { background-color: var(--color-primary); }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown 1s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.blog-content p,
+.blog-content ul,
+.blog-content li,
+.blog-content h3,
+.blog-content blockquote {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.blog-content h3 {
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.75rem !important;
+  font-size: 1rem !important;
+  color: #89EA5F !important;
+  font-weight: 600 !important;
+}
+
+.blog-content blockquote {
+  background: #89EA5F;
+  color: white;
+  padding: 1.2rem;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+
+  text-align: center;
+}
+
+.blog-content ul {
+  list-style: none;
+}
+
+.blog-content li::before {
+  content: "✔";
+  color: #10b981;
+  margin-right: 8px;
+}

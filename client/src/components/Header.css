@@ -1,0 +1,643 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+      /*
+      ====================================================================
+        Global Settings & Preloader (from original file)
+      ====================================================================
+      */
+ 
+      * {
+        margin: 0px;
+        padding: 0px;
+        border: none;
+        outline: none;
+        box-sizing: border-box; /* Added for better layout control */
+      }
+     
+      .auto-container {
+        position: static;
+        max-width: 1200px;
+        padding: 0px 15px;
+        margin: 0 auto;
+      }
+      a {
+        text-decoration: none;
+        transition: all 500ms ease;
+      }
+      a:hover {
+        text-decoration: none;
+        outline: none;
+      }
+      input,
+      button,
+      select,
+      textarea {
+        font-family: 'Poppins', sans-serif;
+      }
+      ul,
+      li {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+      }
+     
+      p {
+        font-family: 'Poppins', sans-serif;
+        color: #6e6e6e;
+        font-weight: 400;
+        margin: 0px;
+      }
+    
+      /* Preloader - existing, unchanged */
+      .handle-preloader {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 9999999;
+        background: #fff; /* Added background */
+      }
+            /* ... (Preloader styles omitted for brevity) ... */
+      /* ====================================================================
+        Header Styles - Updated to match screenshot
+      ====================================================================
+      */
+      .main-header {
+        position: relative;
+        z-index: 999;
+        width: 100%;
+      }
+      .header-top {
+        background: #3a3a3a; /* Matched dark grey from screenshot */
+        color: #fff;
+        padding: 10px 0;
+       
+      }
+      .header-top .top-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        flex-wrap: wrap; /* Added for smaller screen responsiveness */
+      }
+      .header-top .info {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 25px; /* Spaced out items */
+        flex-wrap: wrap;
+      }
+      .header-top .info li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        font-weight: 400;
+      }
+      .header-top .info li i {
+        font-size: 25px;
+        color: #89EA5F; /* Green from screenshot */
+      }
+      .header-top .info li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 300;
+      }
+      .header-top .info li a:hover {
+        color: #89EA5F;
+      }
+      .header-top .social-links {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 15px; /* Spacing between icons */
+        align-items: center;
+      }
+      .header-top .social-links li span {
+        margin-right: 5px;
+        font-weight: 500;
+        font-size: 25px;
+      }
+      /* UPDATED: Simple white icons, no background */
+      .header-top .social-links li a {
+        display: block;
+        background: transparent;
+        color: #fff;
+        text-align: center;
+       
+        transition: all 0.3s ease;
+      }
+      .header-top .social-links li a:hover {
+        color: #89EA5F;
+        transform: translateY(-2px);
+      }
+      .header-lower {
+        background: #fff;
+        padding: 15px 0;
+        /* UPDATED: Removed border-bottom to match screenshot */
+        transition: all 0.3s ease;
+      }
+      /* Sticky header styles (from original) */
+      .header-lower.sticky-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        background: #fff;
+      }
+      .outer-box {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo-box .logo img {
+        height: 64px; /* UPDATED: Adjusted height to match screenshot */
+        width: auto;
+        max-width: 100%; /* Ensure logo isn't oversized */
+      }
+     
+      .menu-area {
+        display: flex;
+        align-items: center;
+      }
+      .menu-area .main-menu {
+        display: block; /* Shown by default on desktop */
+      }
+      .menu-area .navigation {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 35px; /* UPDATED: Spacing between nav items */
+      }
+      .menu-area .navigation li {
+        position: relative;
+      }
+      .menu-area .navigation li a {
+        color: #141417;
+        font-weight: 800;
+        font-size: 16px;
+        text-decoration: none;
+        padding: 15px 0; /* Added padding for click area */
+        transition: color 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      /* UPDATED: Styling for the current 'Home' item */
+      .menu-area .navigation li.current a,
+      .menu-area .navigation li a:hover {
+        color: #89EA5F;
+      }
+      /* Dropdown styles - kept minimal from original */
+      .navigation .dropdown ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        list-style: none;
+        padding: 10px 0;
+        z-index: 100;
+      }
+      .navigation .dropdown:hover ul {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .navigation .dropdown ul li a {
+        padding: 10px 20px;
+        display: block;
+        white-space: nowrap;
+        font-size: 16px;
+        font-weight: 800;
+      }
+      /* Nested submenu styles */
+      .navigation .submenu .dropdown ul {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        background: #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        min-width: 200px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(10px);
+        transition: all 0.3s ease;
+        list-style: none;
+        padding: 10px 0;
+        z-index: 100;
+      }
+      .navigation .submenu .dropdown:hover ul {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+      .navigation .submenu .dropdown ul li a {
+        padding: 10px 20px;
+        display: block;
+        white-space: nowrap;
+        font-size: 16px;
+        font-weight: 800;
+        color: #141417;
+      }
+      .navigation .submenu .dropdown ul li a:hover {
+        color: #89EA5F;
+      }
+      /* Nav Right */
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 25px; /* UPDATED: Gap between search and button */
+      }
+      /* NEW: Style for the search icon */
+      .nav-right .search-box-outer {
+        font-size: 20px;
+        color: #141417;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+      .nav-right .search-box-outer:hover {
+        color: #89EA5F;
+      }
+     
+      /* REMOVED: .search-box (inline form) styles are gone */
+      /* UPDATED: Appointment button style */
+      .theme-btn.btn-one {
+        background: #89EA5F; /* Matched screenshot color */
+        color: #fff;
+        padding: 14px 28px;
+        border-radius: 5px; /* Subtle rounded corners */
+        font-weight: 500;
+       
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        border: none;
+      }
+      .theme-btn.btn-one:hover {
+        background: #78D54E; /* Darker hover */
+        color: #fff;
+      }
+      /* Mobile Toggler */
+      .mobile-nav-toggler {
+        display: none; /* Hide on desktop */
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+        padding: 10px 5px;
+      }
+      .mobile-nav-toggler .icon-bar {
+        width: 28px;
+        height: 3px;
+        background: #141417;
+        transition: all 0.3s ease;
+        border-radius: 1px;
+      }
+      /*
+      ====================================================================
+        Search Popup & Mobile Menu (from original)
+      ====================================================================
+      */
+      /* Search Popup */
+      .search-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 30;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .search-popup.popup-visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      .search-popup .popup-inner {
+        position: relative;
+        width: 90%;
+        max-width: 700px;
+        margin: 100px auto;
+        background: #fff;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+     
+      .search-popup .upper-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 30px;
+        border-bottom: 1px solid #eee;
+      }
+      .search-popup .close-search {
+        cursor: pointer;
+        font-size: 24px;
+        color: #999;
+      }
+      .search-popup .close-search:hover {
+        color: #141417;
+      }
+      .search-popup .search-form {
+        padding: 30px;
+      }
+      .search-popup .search-form .form-group {
+        position: relative;
+      }
+      .search-popup .search-form .form-control {
+        width: 100%;
+        padding: 15px 50px 15px 15px;
+        border: 1px solid #ddd;
+        font-size: 16px;
+        outline: none;
+        border-radius: 5px;
+      }
+      .search-popup .search-form button[type="submit"] {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        font-size: 18px;
+        color: #89EA5F;
+        cursor: pointer;
+      }
+      /* Mobile Menu */
+      body.mobile-menu-visible {
+        overflow: hidden;
+      }
+     
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -300px; /* Start off-screen */
+        width: 300px;
+        height: 100%;
+        background: #2d2d2d;
+        z-index: 10001;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+      }
+      .mobile-menu.mobile-menu-visible {
+        right: 0; /* Slide in */
+      }
+      .mobile-menu .menu-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 10000;
+        display: none; /* Controlled by body class */
+      }
+     
+      body.mobile-menu-visible .mobile-menu .menu-backdrop {
+        display: block;
+      }
+      .mobile-menu .menu-box {
+        padding: 20px;
+        position: relative;
+        z-index: 10002; /* Ensure menu content sits above the backdrop */
+      }
+      .mobile-menu .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        cursor: pointer;
+        font-size: 24px;
+        color: #ffffff;
+        z-index: 10;
+      }
+      .mobile-menu .close-btn:hover {
+        color: #89EA5F;
+      }
+      .mobile-menu .nav-logo {
+        margin-bottom: 20px;
+      }
+      .mobile-menu .nav-logo img {
+        height: 40px;
+      }
+      .mobile-menu .menu-outer {
+        margin-bottom: 30px;
+      }
+      .mobile-menu .navigation {
+        list-style: none;
+        padding: 0;
+      }
+      .mobile-menu .navigation li {
+        border-bottom: 1px solid #444;
+        position: relative;
+      }
+      .mobile-menu .navigation li a {
+        display: block;
+        padding: 12px 0;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 15px;
+      }
+      .mobile-menu .navigation li.current a {
+        color: #89EA5F;
+      }
+      .mobile-menu .navigation li.dropdown .dropdown-btn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 12px 10px;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 18px;
+      }
+     
+      .mobile-menu .navigation li.dropdown .dropdown-btn:hover {
+        color: #89EA5F;
+      }
+      .mobile-menu .navigation li.dropdown ul {
+        display: none; /* Handled by state */
+        padding-left: 20px;
+        background-color: #2d2d2d;
+      }
+      /* When a submenu is opened via React state, it should be visible */
+      .mobile-menu .navigation li.dropdown ul.open {
+        display: block;
+      }
+      /* Also support submenu class names used in JSX */
+      .mobile-menu .navigation .submenu.open {
+        display: block;
+      }
+      .mobile-menu .navigation li.dropdown ul li {
+        border-bottom: none;
+      }
+       .mobile-menu .navigation li.dropdown ul li a {
+       
+        font-weight: 400;
+        padding: 8px 0;
+        color: #ffffff;
+      }
+     
+      .mobile-menu .navigation li.dropdown ul li a:hover {
+        color: #89EA5F;
+      }
+      /* Nested submenu styles for mobile */
+      .mobile-menu .navigation .submenu li.dropdown ul {
+        display: none;
+        padding-left: 40px;
+        background-color: #2d2d2d;
+      }
+      .mobile-menu .navigation .submenu li.dropdown ul.open {
+        display: block;
+      }
+      .mobile-menu .navigation .submenu li.dropdown ul li {
+        border-bottom: none;
+      }
+      .mobile-menu .navigation .submenu li.dropdown ul li a {
+        font-weight: 400;
+        padding: 8px 0;
+        color: #ffffff;
+      }
+      .mobile-menu .navigation .submenu li.dropdown ul li a:hover {
+        color: #89EA5F;
+      }
+      .mobile-menu .contact-info {
+        margin-bottom: 20px;
+      }
+      .mobile-menu .contact-info h4 {
+        font-size: 18px;
+        margin-bottom: 15px;
+        color: #ffffff;
+      }
+      .mobile-menu .contact-info ul li {
+       
+        margin-bottom: 10px;
+        color: #ffffff;
+      }
+      .mobile-menu .contact-info ul li a {
+        color: #ffffff;
+      }
+      .mobile-menu .contact-info ul li a:hover {
+        color: #89EA5F;
+      }
+     
+      .mobile-menu .social-links {
+        display: flex;
+        gap: 15px;
+      }
+      .mobile-menu .social-links a {
+        font-size: 18px;
+        color: #ffffff;
+      }
+      .mobile-menu .social-links a:hover {
+        color: #89EA5F;
+      }
+      /*
+      ====================================================================
+        Responsive Styles
+      ====================================================================
+      */
+      @media (max-width: 991px) {
+        .menu-area .main-menu {
+          display: none; /* Hide desktop nav */
+        }
+       
+        /* Hide desktop search and button */
+        .nav-right .search-box-outer,
+        .nav-right .theme-btn {
+          display: none;
+        }
+        .mobile-nav-toggler {
+          display: flex; /* Show hamburger */
+        }
+       
+        .header-top .top-inner {
+          justify-content: center; /* Center top bar items */
+          gap: 10px;
+        }
+        .header-top .info {
+          justify-content: center;
+        }
+      }
+     
+      @media (max-width: 767px) {
+        .header-top .info {
+          gap: 15px;
+        }
+        .header-top .info li {
+          font-size: 12px;
+          gap: 5px;
+        }
+        .header-top .info li i {
+          font-size: 12px;
+        }
+      }
+      
+      /* Additional responsive for very small screens */
+      @media (max-width: 360px) {
+        .mobile-menu {
+          width: 100%;
+          right: -100%;
+          box-shadow: none;
+        }
+        .mobile-menu.mobile-menu-visible {
+          right: 0;
+        }
+        .mobile-menu .menu-box {
+          padding: 20px 15px;
+        }
+        .mobile-menu .close-btn {
+          right: 15px;
+        }
+        /* Reduce padding for submenus on small screens to prevent overflow */
+        .mobile-menu .navigation li.dropdown ul {
+          padding-left: 15px;
+        }
+        .mobile-menu .navigation .submenu li.dropdown ul {
+          padding-left: 30px;
+        }
+      }
+      
+      /* Search Suggestions Styling */
+.suggestions-list {
+  margin-top: 10px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 0;
+  list-style: none;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  max-height: 300px;
+  overflow-y: auto;
+}
+.suggestions-list li {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+.suggestions-list li:hover {
+  background: #f5f5f5;
+}
