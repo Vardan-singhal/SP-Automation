@@ -16,6 +16,7 @@ import { publicRouter as categoryPublicRoutes, adminRouter as categoryAdminRoute
 import { publicRouter as productPublicRoutes, adminRouter as productAdminRoutes } from './routes/productRoutes.js';
 import { publicRouter as blogPublicRoutes, adminRouter as blogAdminRoutes } from './routes/blogRoutes.js';
 import { publicRouter as navbarPublicRoutes, adminRouter as navbarAdminRoutes } from './routes/navbarRoutes.js';
+import dashboardRoutes from './routes/dashboardRoutes.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -31,6 +32,7 @@ app.use(morgan('dev'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/auth', authRoutes);
+app.use('/api/dashboard', dashboardRoutes);
 
 app.use('/api/topbar', topbarPublicRoutes);
 app.use('/api/admin/topbar', topbarAdminRoutes);
